@@ -1,9 +1,14 @@
 public class Circle extends Shape {
-    double radius;
+    private double radius;
 
-    Circle(double radius) {
-        this.radius = radius;
-        validateRadius();
+    public String toString() {
+        StringBuilder circleString = new StringBuilder();
+        circleString.append(">> Circle <<" + "\n");
+        circleString.append("Radius: " + getRadius() + "\n");
+        circleString.append("Area: " + calculateArea() + "\n");
+        circleString.append("Perimeter: " + calculatePerimeter() + "\n");
+
+        return circleString.toString();
     }
 
     public double calculateArea() {
@@ -14,7 +19,15 @@ public class Circle extends Shape {
         return 2 * 3.14 * radius;
     }
 
-    private void validateRadius() {
-        if (radius <= 0) throw new IllegalArgumentException("Error: radius should be greater than 0");
+    public double getRadius() {
+        return radius;
+    }
+    public void setRadius(double radiusInput) {
+        validateRadius(radiusInput);
+        this.radius = radiusInput;
+    }
+
+    private void validateRadius(double radiusInput) {
+        if (radiusInput <= 0) throw new IllegalArgumentException("Error: radius should be greater than 0");
     }
 }

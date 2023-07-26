@@ -1,9 +1,14 @@
 public class Square extends Shape {
-    double side;
+    private double side;
 
-    Square(double side) {
-        this.side = side;
-        validateSide();
+    public String toString() {
+        StringBuilder squareString = new StringBuilder();
+        squareString.append(">> Square <<" + "\n");
+        squareString.append("Side: " + getSide() + "\n");
+        squareString.append("Area: " + calculateArea() + "\n");
+        squareString.append("Perimeter: " + calculatePerimeter() + "\n");
+
+        return squareString.toString();
     }
 
     public double calculateArea() {
@@ -14,7 +19,16 @@ public class Square extends Shape {
         return 4 * side;
     }
 
-    private void validateSide() {
-        if (side <= 0) throw new IllegalArgumentException("Error: side should be greater than 0");
+    public double getSide() {
+        return side;
+    }
+
+    public void setSide(double sideInput) {
+        validateSide(sideInput);
+        this.side = sideInput;
+    }
+
+    private void validateSide(double sideInput) {
+        if (sideInput <= 0) throw new IllegalArgumentException("Error: side should be greater than 0");
     }
 }

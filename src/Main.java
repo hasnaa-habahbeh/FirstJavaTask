@@ -1,23 +1,25 @@
 public class Main {
     public static void printValues(Shape shape) {
-        System.out.println("shape object -> " + shape);
-        System.out.println("area -> " + shape.calculateArea());
-        System.out.println("perimeter -> " + shape.calculatePerimeter());
-        System.out.println("___________________");
+        System.out.println(shape.toString());
     }
 
     public static void main(String[] args) {
         try {
-            Circle testCircle = new Circle(3);
+            Circle testCircle = new Circle();
+            testCircle.setRadius(3);
             printValues(testCircle);
 
-            Square testSquare = new Square(3);
+            Square testSquare = new Square();
+            testSquare.setSide(3);
             printValues(testSquare);
 
-            Triangle testTriangle = new Triangle(6, 3, 4);
+            Triangle testTriangle = new Triangle();
+            testTriangle.setBase(4);
+            testTriangle.setLeg1(3);
+            testTriangle.setLeg2(6);
             printValues(testTriangle);
 
-            double triangleAreaByHeight = Triangle.calculateArea(3);
+            double triangleAreaByHeight = testTriangle.calculateArea(3);
             System.out.println("overload method result -> " + triangleAreaByHeight);
         } catch (Error error) {
             System.out.println("Error: " + error);
