@@ -2,15 +2,14 @@ public class Triangle extends Shape {
     private double base, leg1, leg2;
 
     public String toString() {
-        StringBuilder triangleString = new StringBuilder();
-        triangleString.append(">> Triangle <<" + "\n");
-        triangleString.append("Base: " + getBase() + "\n");
-        triangleString.append("Leg1: " + getLeg1() + "\n");
-        triangleString.append("Leg2: " + getLeg2() + "\n");
-        triangleString.append("Area: " + calculateArea() + "\n");
-        triangleString.append("Perimeter: " + calculatePerimeter() + "\n");
+        String triangleString = ">> Triangle << \n";
+        triangleString = triangleString.concat("Base: " + getBase() + "\n");
+        triangleString = triangleString.concat("Leg1: " + getLeg1() + "\n");
+        triangleString = triangleString.concat("Leg2: " + getLeg2() + "\n");
+        triangleString = triangleString.concat("Area: " + calculateArea() + "\n");
+        triangleString = triangleString.concat("Perimeter: " + calculatePerimeter());
 
-        return triangleString.toString();
+        return triangleString;
     }
 
     public double calculateArea() {
@@ -56,6 +55,8 @@ public class Triangle extends Shape {
     }
 
     private static void validateValue(double value, String valueName) {
-        if (value <= 0) throw new IllegalArgumentException("Error: " + valueName + " should be greater than 0");
+        if (value <= 0) {
+            throw new IllegalArgumentException("Error: " + valueName + " should be greater than 0");
+        }
     }
 }

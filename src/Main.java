@@ -1,6 +1,6 @@
 public class Main {
     public static void printValues(Shape shape) {
-        System.out.println(shape.toString());
+        System.out.println(shape);
     }
 
     public static void main(String[] args) {

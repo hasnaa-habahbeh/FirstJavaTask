@@ -2,13 +2,12 @@ public class Square extends Shape {
     private double side;
 
     public String toString() {
-        StringBuilder squareString = new StringBuilder();
-        squareString.append(">> Square <<" + "\n");
-        squareString.append("Side: " + getSide() + "\n");
-        squareString.append("Area: " + calculateArea() + "\n");
-        squareString.append("Perimeter: " + calculatePerimeter() + "\n");
+        String squareString = ">> Square << \n";
+        squareString= squareString.concat("Side: " + getSide() + "\n");
+        squareString = squareString.concat("Area: " + calculateArea() + "\n");
+        squareString = squareString.concat("Perimeter: " + calculatePerimeter());
 
-        return squareString.toString();
+        return squareString;
     }
 
     public double calculateArea() {
@@ -29,6 +28,8 @@ public class Square extends Shape {
     }
 
     private void validateSide(double sideInput) {
-        if (sideInput <= 0) throw new IllegalArgumentException("Error: side should be greater than 0");
+        if (sideInput <= 0) {
+            throw new IllegalArgumentException("Error: side should be greater than 0");
+        }
     }
 }
